@@ -134,7 +134,7 @@
     }
     .dot.active{background:#18c36b}
 
-    /* ===== 圖片放大 Lightbox ===== */
+        /* ===== 圖片放大 Lightbox（左圖右文；手機自動上下） ===== */
     .lb{
       position:fixed; inset:0;
       background:rgba(0,0,0,.78);
@@ -147,7 +147,11 @@
     .lb.show{display:flex}
     .lb-panel{
       position:relative;
-      width:min(540px, 100%);
+      width:min(980px, 100%);
+      display:grid;
+      grid-template-columns:minmax(280px, 520px) 1fr;
+      gap:16px;
+      align-items:start;
     }
     .lb-img{
       width:100%;
@@ -159,6 +163,19 @@
       border:1px solid rgba(255,255,255,.12);
       display:block;
     }
+    .lb-side{
+      background:rgba(255,255,255,.03);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:16px;
+      padding:16px;
+      max-height:88vh;
+      overflow:auto;
+    }
+    .lb-title{margin:0 0 8px;font-size:20px;line-height:1.35}
+    .lb-subtitle{margin:0 0 12px;opacity:.85}
+    .lb-body{margin:0;opacity:.9;white-space:pre-line}
+    .lb-meta{margin-top:12px;font-size:13px;opacity:.65}
+
     .lb-close{
       position:absolute;
       top:-10px; right:-10px;
@@ -169,12 +186,17 @@
       color:#fff;
       font-size:20px;
       cursor:pointer;
+      z-index:2;
     }
     .lb-hint{
       margin-top:10px;
       text-align:center;
       font-size:13px;
       opacity:.75;
+    }
+    @media (max-width:820px){
+      .lb-panel{grid-template-columns:1fr}
+      .lb-side{max-height:none}
     }
   </style>
 </head>
@@ -214,7 +236,7 @@
         <div class="car-track" id="caseTrack">
 
           <!-- 01 -->
-          <article class="slide" data-case-id="case1">
+          <article class="slide" data-case-id="case1" data-lb-title="案例 01｜多筆負債狀況下，成功規劃週轉方案" data-lb-subtitle="約 50 天完成評估與撥款，協助客戶留住關鍵資金" data-lb-body="客戶為自營商，工作年資多年、收入穩定，但名下同時存在房貸、二胎、融資、商品貸、機車貸與代書借款等多筆負債，整體結構複雜，近期因營運需求出現資金週轉壓力。 在正式操作前，我們先完整盤點現有貸款與繳款狀況，釐清風險點與可調整空間，避免在條件尚未釐清前貿然送件，導致紀錄受損。 經過多次評估與方向調整後，成功協助客戶保留這筆重要的週轉資金，讓店面營運得以延續。">
             <div class="slide-media">
               <img class="case-img" src="images/case1.jpg" data-full="images/case1.jpg" alt="成功案例1 客戶對話截圖" loading="lazy">
             </div>
@@ -233,7 +255,7 @@
           </article>
 
           <!-- 02 -->
-          <article class="slide" data-case-id="case2">
+          <article class="slide" data-case-id="case2" data-lb-title="案例 02｜銀行剛貸、當舖與車貸並存的整合規劃" data-lb-subtitle="16 天完成申辦與撥款，成功整合高利負擔" data-lb-body="客戶為職軍，年資約 1 年，月收入穩定，但近期剛辦理銀行貸款並已繳納首期，同時又有汽車貸款與高利息當舖借款，整體負擔偏高，資金壓力逐漸浮現。 在正式操作前，我們先協助客戶完整盤點現有貸款狀況，評估銀行剛貸後的影響，以及當舖與車貸對整體現金流的壓力，避免因急於處理而造成條件惡化。 經過評估與整合規劃後，成功協助客戶完成當舖負擔的整理，降低短期壓力，讓還款結構回到較可控的狀態。">
             <div class="slide-media">
               <img class="case-img" src="images/case2.jpg" data-full="images/case2.jpg" alt="成功案例2 客戶對話截圖" loading="lazy">
             </div>
@@ -252,7 +274,7 @@
           </article>
 
           <!-- 03 -->
-          <article class="slide" data-case-id="case3">
+          <article class="slide" data-case-id="case3" data-lb-title="案例 03｜呆帳紀錄下，成功整合高利小額負擔" data-lb-subtitle="7 天內完成申辦與撥款，有效降低資金壓力" data-lb-body="客戶為外場人員，具多年工作經驗，收入來源穩定但以兼職為主，過去曾有銀行呆帳紀錄，同時名下存在多筆融資、商品貸與小額高利借款，且部分帳款仍有未清餘額，整體財務結構較為吃緊。 在評估初期，我們先協助客戶完整盤點現有借款狀況，釐清哪些負擔屬於高利小額、哪些項目需優先處理，並避開容易加重風險的操作方式。 經過調整與整合規劃後，成功協助客戶完成小額高利借款的整理，讓還款結構回到可控範圍內，短期壓力明顯下降。">
             <div class="slide-media">
               <img class="case-img" src="images/case3.jpg" data-full="images/case3.jpg" alt="成功案例3 客戶對話截圖" loading="lazy">
             </div>
@@ -271,7 +293,7 @@
           </article>
 
           <!-- 04 -->
-          <article class="slide" data-case-id="case4">
+          <article class="slide" data-case-id="case4" data-lb-title="案例 04｜銀行協商中，成功整合生活週轉資金" data-lb-subtitle="7 天內完成申辦與撥款，穩定短期現金流" data-lb-body="客戶為居家服務人員，工作年資約 2 年，收入穩定，名下雖無房產，但已有多筆融資與商品貸款，同時銀行帳務仍在協商階段，資金運用空間受限，生活週轉壓力逐漸增加。 在正式處理前，我們先協助客戶全面盤點現有負擔，確認銀行協商狀態對後續規劃的影響，並避開可能加重壓力的錯誤操作。 經過評估與整合後，成功協助客戶完成資金調度，讓生活週轉回到可控狀態，同時保留後續調整的彈性。">
             <div class="slide-media">
               <img class="case-img" src="images/case4.jpg" data-full="images/case4.jpg" alt="成功案例4 客戶對話截圖" loading="lazy">
             </div>
@@ -290,7 +312,7 @@
           </article>
 
           <!-- 05 -->
-          <article class="slide" data-case-id="case5">
+          <article class="slide" data-case-id="case5" data-lb-title="案例 05｜信用卡負債偏高，成功保留生活週轉彈性" data-lb-subtitle="12 天完成申辦與撥款，避免高利壓力持續擴大" data-lb-body="客戶為半導體金屬製造業主管，年資超過 10 年，具正職與多項兼職收入來源，整體收入穩定。然而名下信用卡負債偏高，同時有多筆融資與當舖借款並存，短期現金流承受較大壓力。 在處理前，我們先協助客戶全面盤點現有負債結構，特別針對信用卡循環、高利借款與當舖項目進行風險評估，避免在條件尚未釐清前貿然操作，導致負擔進一步惡化。 經過評估與調整後，成功協助客戶保留一筆可運用的生活週轉資金，讓日常支出與還款安排更具彈性。">
             <div class="slide-media">
               <img class="case-img" src="images/case5.jpg" data-full="images/case5.jpg" alt="成功案例5 客戶對話截圖" loading="lazy">
             </div>
@@ -309,7 +331,7 @@
           </article>
 
           <!-- 06 -->
-          <article class="slide" data-case-id="case6">
+          <article class="slide" data-case-id="case6" data-lb-title="案例 06｜多筆遲繳紀錄下，成功整合高利小額負擔" data-lb-subtitle="11 天完成申辦與撥款，協助重整債務結構" data-lb-body="客戶為電子公司設備工程師，年資約 1 年多，收入穩定，但名下同時存在銀行信貸與房貸遲繳紀錄，另有多筆融資商品貸與小額高利借款，還款狀況零散，整體財務壓力偏高。 在正式處理前，我們先協助客戶全面盤點各項負債與遲繳情形，釐清哪些項目屬於高利負擔、哪些需優先整合，並避免在條件尚未穩定前貿然操作，降低後續風險。 經過評估與整合規劃後，成功協助客戶完成高利小額借款的整理，讓生活週轉回到相對可控的狀態。">
             <div class="slide-media">
               <img class="case-img" src="images/case6.jpg" data-full="images/case6.jpg" alt="成功案例6 客戶對話截圖" loading="lazy">
             </div>
@@ -328,7 +350,7 @@
           </article>
 
           <!-- 07 -->
-          <article class="slide" data-case-id="case7">
+          <article class="slide" data-case-id="case7" data-lb-title="案例 07｜多查紀錄與卡循偏高下，成功整合信用負擔" data-lb-subtitle="約 40 天完成申辦與撥款，重整信用結構" data-lb-body="客戶為製造業現場主管，兼任物流相關工作，年資約 8 年，收入穩定，名下原本已有房貸與信貸正常繳款，但近期因多次申請紀錄，加上信用卡循環金額偏高，導致銀行端審核趨於保守，資金調度空間受限。 在處理前，我們先協助客戶完整盤點銀行查詢紀錄、信用卡使用狀況與名下融資結構，釐清影響審核的關鍵原因，並避免再次無效送件造成條件惡化。 經過評估與整合規劃後，成功協助客戶完成信用卡與融資負擔的整理，讓整體繳款結構回到較健康、可控的狀態。">
             <div class="slide-media">
               <img class="case-img" src="images/case7.jpg" data-full="images/case7.jpg" alt="成功案例7 客戶對話截圖" loading="lazy">
             </div>
@@ -347,7 +369,7 @@
           </article>
 
           <!-- 08 -->
-          <article class="slide" data-case-id="case8">
+          <article class="slide" data-case-id="case8" data-lb-title="案例 08｜多筆遲繳後轉代書，成功清償小額負擔" data-lb-subtitle="10 天完成申辦與撥款，協助穩定生活週轉" data-lb-body="客戶為製造業從業人員，年資超過 10 年，收入穩定，但名下同時存在銀行貸款遲繳紀錄，後續資金需求只能轉向代書處理，整體還款壓力偏高，生活週轉空間明顯受限。 在評估初期，我們先協助客戶完整盤點銀行與融資繳款狀況，釐清遲繳對信用條件的實際影響，並確認代書借款的可行性與風險，避免再次錯誤操作造成負擔擴大。 經過評估與規劃後，成功協助客戶完成小額清償與生活週轉安排，讓整體資金流動回到相對可控的狀態。">
             <div class="slide-media">
               <img class="case-img" src="images/case8.jpg" data-full="images/case8.jpg" alt="成功案例8 客戶對話截圖" loading="lazy">
             </div>
@@ -366,7 +388,7 @@
           </article>
 
           <!-- 09 -->
-          <article class="slide" data-case-id="case9">
+          <article class="slide" data-case-id="case9" data-lb-title="案例 09｜協商中仍有遲繳，多管道借款後成功整合" data-lb-subtitle="16 天完成申辦與撥款，協助清償高風險小額" data-lb-body="客戶為裁切技術員，年資約 2 年多，收入穩定，名下雖有銀行協商中的信貸，同時仍背負多筆商品貸、當舖與代書借款，部分項目曾出現遲繳情形，整體負債結構複雜，小額高利負擔逐漸累積。 在正式處理前，我們先協助客戶完整盤點各項借款來源與繳款狀況，釐清哪些屬於高風險負擔、哪些仍可正常維持，並避免在條件尚未穩定前貿然操作，降低後續信用風險。 經過評估與整合規劃後，成功協助客戶完成多管道借款的整理，清償部分高利小額，讓整體還款壓力回到可控範圍。">
             <div class="slide-media">
               <img class="case-img" src="images/case9.jpg" data-full="images/case9.jpg" alt="成功案例9 客戶對話截圖" loading="lazy">
             </div>
@@ -385,7 +407,7 @@
           </article>
 
           <!-- 10 -->
-          <article class="slide" data-case-id="case10">
+          <article class="slide" data-case-id="case10" data-lb-title="案例 10｜協商未定、民間借款並存，成功整合生活週轉" data-lb-subtitle="約 20 天完成申辦與撥款，穩住人情與財務壓力" data-lb-body="客戶為製造業從業人員，年資約 2 年多，收入穩定，名下已有銀行協商案件尚未定案，同時存在當舖借款與向朋友借款的情況，短期內人情與財務壓力同時累積，資金安排空間相當有限。 在處理過程中，我們先協助客戶完整盤點現有負擔，釐清協商狀態對後續規劃的影響，並評估民間借款與當舖利息的實際壓力，避免為了短期需求而誤入高利風險。 經過評估與整合後，成功協助客戶完成資金調度，讓生活週轉得以穩定，也避免人情壓力持續擴大。">
             <div class="slide-media">
               <img class="case-img" src="images/case10.jpg" data-full="images/case10.jpg" alt="成功案例10 客戶對話截圖" loading="lazy">
             </div>
@@ -405,65 +427,7 @@
 
           <!-- ✅ 你原本後面 case11~case13 我沒有刪，保持原狀（如果要只留10個我也可以幫你裁切） -->
 
-          <!-- 11 -->
-          <article class="slide" data-case-id="case11">
-            <div class="slide-media">
-              <img class="case-img" src="images/case11.jpg" data-full="images/case11.jpg" alt="成功案例11 客戶對話截圖" loading="lazy">
-            </div>
-            <div class="slide-body">
-              <div class="tag">案例 11｜銀行剛貸、多筆未過件後，成功取得生活週轉金</div>
-              <h3>約 14 天完成申辦與撥款，穩定短期資金需求</h3>
-              <p class="slide-desc">客戶為夜班保全人員，工作年資約 10 個月，月收入約 4.4 萬，薪資穩定，但名下近期剛完成銀行信貸，同時又曾有融資支付命令紀錄，加上短時間內多次申貸未過件或被要求提供保人，導致資金調度空間明顯受限。
-
-在正式處理前，我們先協助客戶完整盤點近期申貸紀錄與現有負債狀況，釐清銀行剛貸後對審核條件的影響，並避免再度重複嘗試不適合的管道，以免條件進一步惡化。
-經過評估與規劃後，成功協助客戶完成生活週轉安排，讓房租與必要支出得以順利銜接，短期壓力明顯降低。</p>
-              <div class="quote">
-                <div class="stars" aria-label="5顆星">★★★★★</div>
-                <p>「本來已經申請好幾次都沒過，很怕再試下去會更糟，還好你們會先幫我分析，不會一直叫我去送件，真的比較安心。」</p>
-                <div class="who">— 客戶回饋</div>
-              </div>
-            </div>
-          </article>
-
-          <!-- 12 -->
-          <article class="slide" data-case-id="case12">
-            <div class="slide-media">
-              <img class="case-img" src="images/case12.jpg" data-full="images/case12.jpg" alt="成功案例12 客戶對話截圖" loading="lazy">
-            </div>
-            <div class="slide-body">
-              <div class="tag">案例 12｜近期增貸未過件，多筆小額後成功整合債務</div>
-              <h3>約 11 天完成申辦與撥款，協助降低還款壓力</h3>
-              <p class="slide-desc">客戶為製造業副工程師，工作年資約 8 個月，收入穩定但資歷尚淺。名下已有銀行貸款與多筆商品貸，近期因連續增貸與送件未過，導致審核條件趨於保守，同時又有當舖與民間小額借款，短期債務壓力明顯累積。
-
-在正式處理前，我們先協助客戶完整盤點各項借款來源與繳款狀況，釐清近期增貸行為對整體條件的影響，並避免再次嘗試不適合的管道，以免風險進一步放大。
-經過評估與整合規劃後，成功協助客戶完成債務整理，降低多筆小額造成的現金流壓力，讓還款結構回到相對可控的狀態。</p>
-              <div class="quote">
-                <div class="stars" aria-label="5顆星">★★★★★</div>
-                <p>「原本真的很擔心一直增貸會越來越糟，還好你們會先幫我看清楚狀況，再跟我說怎麼做比較安全，這點讓人很放心。」</p>
-                <div class="who">— 客戶回饋</div>
-              </div>
-            </div>
-          </article>
-
-          <!-- 13 -->
-          <article class="slide" data-case-id="case13">
-            <div class="slide-media">
-              <img class="case-img" src="images/case13.jpg" data-full="images/case13.jpg" alt="成功案例13 客戶對話截圖" loading="lazy">
-            </div>
-            <div class="slide-body">
-              <div class="tag">案例 13｜協商進行中、當舖長期繳息下，成功整合週轉金</div>
-              <h3>約 27 天完成申辦與撥款，協助減輕利息壓力</h3>
-              <p class="slide-desc">客戶為保全人員，年資約 5 年，收入穩定。名下同時存在銀行協商案件，部分融資亦處於協商狀態，另有當舖借款長期僅繳利息，導致每月現金流持續被利息侵蝕，週轉空間逐漸縮小。
-
-在正式處理前，我們先協助客戶完整盤點各項協商進度與繳款狀況，釐清哪些負擔屬於「只繳利息、無法有效下降」的高壓項目，並避免在協商期間做出容易影響條件的錯誤操作。
-經過評估與整合規劃後，成功協助客戶完成當舖負擔整理，取得可運用的週轉資金，讓還款結構回到較為可控的狀態。</p>
-              <div class="quote">
-                <div class="stars" aria-label="5顆星">★★★★★</div>
-                <p>「之前一直只是在繳利息，壓力其實很大，還好你們會先幫我分析，也不會亂叫我去借，整個過程很安心。」</p>
-                <div class="who">— 客戶回饋</div>
-              </div>
-            </div>
-          </article>
+          
 
         </div>
 
@@ -518,17 +482,62 @@
 
   </main>
 
+  
   <!-- Lightbox -->
   <div class="lb" id="lightbox" aria-hidden="true">
     <div class="lb-panel" role="dialog" aria-modal="true" aria-label="圖片放大預覽">
       <button class="lb-close" type="button" id="lbClose" aria-label="關閉">✕</button>
-      <img class="lb-img" id="lbImg" alt="放大圖片">
-      <div class="lb-hint">點右上角 ✕ 可關閉</div>
+
+      <!-- 左：圖片 -->
+      <div>
+        <img class="lb-img" id="lbImg" alt="放大圖片">
+        <div class="lb-hint">點背景 / 按 ESC / 點右上角 ✕ 可關閉</div>
+      </div>
+
+      <!-- 右：文字 -->
+      <aside class="lb-side" aria-label="案例說明">
+        <h3 class="lb-title" id="lbTitle">—</h3>
+        <p class="lb-subtitle" id="lbSubtitle"></p>
+        <p class="lb-body" id="lbBody"></p>
+        <div class="lb-meta" id="lbMeta"></div>
+      </aside>
     </div>
   </div>
 
+</div>
+
   <script>
-    // ===== 成功案例輪播：按鈕 / 圓點 =====
+    // ===== Conversions API（CAPI）端點（Cloudflare Worker）=====
+    const CAPI_ENDPOINT = "https://dry-sun-e97f.skype138388.workers.dev";
+
+    function getCookie(name){
+      const m = document.cookie.match(new RegExp('(?:^|; )' + name.replace(/([.$?*|{}()\[\]\/\+^])/g,'\$1') + '=([^;]*)'));
+      return m ? decodeURIComponent(m[1]) : '';
+    }
+
+    function uuid(){
+      return (crypto && crypto.randomUUID) ? crypto.randomUUID() :
+        String(Date.now()) + "-" + Math.random().toString(16).slice(2);
+    }
+
+    async function sendCapi(event_name, event_id, custom_data){
+      try{
+        await fetch(CAPI_ENDPOINT, {
+          method:"POST",
+          headers:{"content-type":"application/json"},
+          body: JSON.stringify({
+            event_name,
+            event_id,
+            custom_data,
+            event_source_url: location.href,
+            fbp: getCookie("_fbp"),
+            fbc: getCookie("_fbc")
+          })
+        });
+      }catch(e){}
+    }
+
+        // ===== 成功案例輪播：按鈕 / 圓點 =====
     (function(){
       const track = document.getElementById('caseTrack');
       const dotsWrap = document.getElementById('caseDots');
@@ -578,68 +587,108 @@
       nextBtn && nextBtn.addEventListener('click', ()=>go(1));
     })();
 
-    // ===== Pixel：LINE 點擊 → Lead =====
-    (function(){
-      function safeFbqTrack(eventName, meta){
-        try{ if(typeof fbq === 'function') fbq('track', eventName, meta || {}); }catch(e){}
+    // ===== Pixel + CAPI：LINE 點擊 → Lead（去重 + 延遲跳轉避免漏送）=====
+(function(){
+  document.querySelectorAll('.line-cta').forEach((el) => {
+    el.addEventListener('click', function(e){
+      e.preventDefault(); // 先不要立刻跳轉
+      const href = el.getAttribute('href');
+      const event_id = uuid();
+      const meta = {
+        content_name: 'line_click',
+        cta_position: el.getAttribute('data-cta') || 'unknown'
+      };
+
+      // Browser Pixel
+      try{
+        if(typeof fbq === 'function'){
+          fbq('track', 'Lead', meta, { eventID: event_id });
+        }
+      }catch(err){}
+
+      // Conversions API
+      sendCapi('Lead', event_id, meta);
+
+      // 小延遲再跳轉，降低事件漏送
+      setTimeout(() => { window.location.href = href; }, 180);
+    });
+  });
+})();
+
+    // ===== 圖片放大 + 追蹤「觀看照片」事件（Pixel + CAPI 去重）=====
+(function(){
+  const lb = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lbImg');
+  const lbClose = document.getElementById('lbClose');
+
+  const lbTitle = document.getElementById('lbTitle');
+  const lbSubtitle = document.getElementById('lbSubtitle');
+  const lbBody = document.getElementById('lbBody');
+  const lbMeta = document.getElementById('lbMeta');
+
+  function trackViewCaseImage(meta){
+    const event_id = uuid();
+
+    // Browser Pixel
+    try{
+      if(typeof fbq === 'function'){
+        fbq('trackCustom', 'ViewCaseImage', meta || {}, { eventID: event_id });
       }
-      document.querySelectorAll('.line-cta').forEach((el) => {
-        el.addEventListener('click', function(){
-          safeFbqTrack('Lead', {
-            content_name: 'line_click',
-            cta_position: el.getAttribute('data-cta') || 'unknown'
-          });
-        }, {passive:true});
-      });
-    })();
+    }catch(e){}
 
-    // ===== 圖片放大 + 追蹤「觀看照片」事件 =====
-    (function(){
-      const lb = document.getElementById('lightbox');
-      const lbImg = document.getElementById('lbImg');
-      const lbClose = document.getElementById('lbClose');
+    // Conversions API
+    sendCapi('ViewCaseImage', event_id, meta || {});
+  }
 
-      function trackViewCaseImage(meta){
-        try{
-          if(typeof fbq === 'function'){
-            fbq('trackCustom', 'ViewCaseImage', meta || {});
-          }
-        }catch(e){}
-      }
+  function openLightbox(imgEl){
+    const slide = imgEl.closest('.slide');
+    const caseId = slide?.getAttribute('data-case-id') || 'unknown';
+    const fullSrc = imgEl.getAttribute('data-full') || imgEl.getAttribute('src');
 
-      function openLightbox(imgEl){
-        const slide = imgEl.closest('.slide');
-        const caseId = slide?.getAttribute('data-case-id') || 'unknown';
-        const fullSrc = imgEl.getAttribute('data-full') || imgEl.getAttribute('src');
+    lbImg.src = fullSrc;
 
-        lbImg.src = fullSrc;
-        lb.classList.add('show');
-        lb.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden';
+    // 右側文字（從 data-* 讀；沒填就用現場內容兜底）
+    const title = slide?.getAttribute('data-lb-title') || slide?.querySelector('.tag')?.textContent?.trim() || '成功案例';
+    const subtitle = slide?.getAttribute('data-lb-subtitle') || slide?.querySelector('h3')?.textContent?.trim() || '';
+    const body = slide?.getAttribute('data-lb-body') || slide?.querySelector('.slide-desc')?.textContent?.trim() || '';
 
-        trackViewCaseImage({
-          case_id: caseId,
-          image_src: fullSrc
-        });
-      }
+    lbTitle.textContent = title;
+    lbSubtitle.textContent = subtitle;
+    lbBody.textContent = body;
+    lbMeta.textContent = `案例編號：${caseId}`;
 
-      function closeLightbox(){
-        lb.classList.remove('show');
-        lb.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
-        lbImg.src = '';
-      }
+    lb.classList.add('show');
+    lb.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
 
-      document.querySelectorAll('.case-img').forEach((img) => {
-        img.addEventListener('click', () => openLightbox(img));
-      });
+    trackViewCaseImage({
+      case_id: caseId,
+      image_src: fullSrc
+    });
+  }
 
-      lbClose.addEventListener('click', closeLightbox);
-      lb.addEventListener('click', (e) => { if(e.target === lb) closeLightbox(); });
-      document.addEventListener('keydown', (e) => {
-        if(e.key === 'Escape' && lb.classList.contains('show')) closeLightbox();
-      });
-    })();
-  </script>
+  function closeLightbox(){
+    lb.classList.remove('show');
+    lb.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    lbImg.src = '';
+
+    lbTitle.textContent = '';
+    lbSubtitle.textContent = '';
+    lbBody.textContent = '';
+    lbMeta.textContent = '';
+  }
+
+  document.querySelectorAll('.case-img').forEach((img) => {
+    img.addEventListener('click', () => openLightbox(img));
+  });
+
+  lbClose.addEventListener('click', closeLightbox);
+  lb.addEventListener('click', (e) => { if(e.target === lb) closeLightbox(); });
+  document.addEventListener('keydown', (e) => {
+    if(e.key === 'Escape' && lb.classList.contains('show')) closeLightbox();
+  });
+})();
+</script>
 </body>
 </html>
