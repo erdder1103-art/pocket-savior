@@ -22,6 +22,17 @@ a:hover{text-decoration:underline}
 .btn{display:block;text-align:center;background:#18c36b;color:#04120a;font-weight:800;padding:14px;border-radius:14px;margin-top:14px}
 .note{font-size:13px;opacity:.7}
 
+/* ✅ SEO：風險提示（與第 1 篇一致） */
+.seo-note{
+  margin:12px 0 0;
+  padding:12px 14px;
+  border-radius:14px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.08);
+  font-size:13px;
+  opacity:.9;
+}
+
 /* ===== Header（穩定最終版） ===== */
 .topbar{position:sticky;top:0;z-index:50;background:rgba(11,12,16,.85);border-bottom:1px solid rgba(255,255,255,.08);height:72px;display:flex;align-items:center}
 .topbar-inner{max-width:720px;margin:0 auto;width:100%;padding:0 18px;display:flex;justify-content:center;align-items:center}
@@ -43,6 +54,12 @@ a:hover{text-decoration:underline}
 
 <section class="card">
 <h1>聯徵不好，真的就完全沒機會了嗎？</h1>
+
+<!-- ✅ SEO 風險說明段（Google 需要這個） -->
+<p class="seo-note">
+本篇內容針對「聯徵不好」的常見情況與風險判斷做整理。聯徵瑕疵的種類、時間點與後續處理方式差異很大，並非所有做法都適合每一個人。
+若你不確定自己的聯徵狀況屬於哪一類，建議先釐清風險，再決定是否行動。
+</p>
 
 <p>
 很多人在搜尋「聯徵不好借錢」時，其實心裡已經有一個預設答案：  
@@ -168,6 +185,17 @@ a:hover{text-decoration:underline}
 
 <a href="../index.html" class="btn">回首頁，先聊聊你的狀況</a>
 <p class="note">不辦、不查、不影響信用</p>
+
+<!-- ✅ SEO：文章互連（和第 1 篇形成閉環） -->
+<hr style="border:0;border-top:1px solid rgba(255,255,255,.08);margin:18px 0">
+<h3>你也可以參考其他常見借錢狀況</h3>
+<ul>
+  <li><a href="./bank-rejected.html">銀行借錢被拒絕後，還有沒有其他選擇？</a></li>
+  <li><a href="./bad-credit.html">聯徵不好、信用紀錄不理想，現在適合借錢嗎？</a></li>
+  <li><a href="./many-debts.html">名下多筆負債時，再借錢會不會讓情況更糟？</a></li>
+</ul>
+<p class="note">以上內容為經驗整理，非每個狀況都適用；若你不確定自己屬於哪一類，建議先評估再行動。</p>
+
 </section>
 
 </main>

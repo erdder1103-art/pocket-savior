@@ -22,6 +22,17 @@ a:hover{text-decoration:underline}
 .btn{display:block;text-align:center;background:#18c36b;color:#04120a;font-weight:800;padding:14px;border-radius:14px;margin-top:14px}
 .note{font-size:13px;opacity:.7}
 
+/* ✅ SEO：風險提示（加速索引 / 降低誤導風險） */
+.seo-note{
+  margin:12px 0 0;
+  padding:12px 14px;
+  border-radius:14px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.08);
+  font-size:13px;
+  opacity:.9;
+}
+
 /* ===== Header（穩定最終版） ===== */
 .topbar{position:sticky;top:0;z-index:50;background:rgba(11,12,16,.85);border-bottom:1px solid rgba(255,255,255,.08);height:72px;display:flex;align-items:center}
 .topbar-inner{max-width:720px;margin:0 auto;width:100%;padding:0 18px;display:flex;justify-content:center;align-items:center}
@@ -43,6 +54,12 @@ a:hover{text-decoration:underline}
 
 <section class="card">
 <h1>銀行借錢被拒絕後，還有沒有其他選擇？</h1>
+
+<!-- ✅ SEO 風險說明段：放在前段（你要的「我說的樣子」） -->
+<p class="seo-note">
+這篇內容針對「銀行借錢被拒絕」的常見原因與下一步判斷做整理。不同人的收入、負債、查詢紀錄與時間點都不一樣，並非每個做法都適用。
+若你不確定自己的狀況屬於哪一類，建議先釐清風險再決定，避免因為急著處理而留下更多不利紀錄。
+</p>
 
 <p>
 「借錢被銀行拒絕」通常不是一開始就發生的事。  
@@ -172,6 +189,17 @@ a:hover{text-decoration:underline}
 
 <a href="../index.html" class="btn">回首頁，先聊聊你的狀況</a>
 <p class="note">不辦、不查、不影響信用</p>
+
+<!-- ✅ SEO：文章互連區塊（加速建立參照網頁） -->
+<hr style="border:0;border-top:1px solid rgba(255,255,255,.08);margin:18px 0">
+<h3>你也可以參考其他常見借錢狀況</h3>
+<ul>
+  <li><a href="./bank-rejected.html">銀行借錢被拒絕後，還有沒有其他選擇？</a></li>
+  <li><a href="./bad-credit.html">聯徵不好、信用紀錄不理想，現在適合借錢嗎？</a></li>
+  <li><a href="./many-debts.html">名下多筆負債時，再借錢會不會讓情況更糟？</a></li>
+</ul>
+<p class="note">以上內容為經驗整理，非每個狀況都適用；若你不確定自己屬於哪一類，建議先評估再行動。</p>
+
 </section>
 
 </main>
