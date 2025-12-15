@@ -31,6 +31,26 @@
   <!-- End Meta Pixel Code -->
 
   <style>
+/* === CTA 文字強制顯示（終極保險） === */
+.btn {
+  position: relative;
+}
+
+.btn-text {
+  position: relative;
+  z-index: 10;                 /* 永遠在最上層 */
+  color: #04120a !important;   /* 深色字，保證可見 */
+  font-weight: 800;
+  font-size: 16px;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.btn::before,
+.btn::after {
+  z-index: 1 !important;       /* 所有動畫都壓在文字下面 */
+}
+
     body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans TC",sans-serif;margin:0;line-height:1.6;background:#0b0c10;color:#eaeaea}
     .wrap{max-width:720px;margin:0 auto;padding:18px 18px 28px}
 
@@ -561,15 +581,16 @@
       </ul>
       <div class="divider"></div>
 
-      <!-- ✅ 只保留底部 LINE CTA（連結已改好） -->
-      <a class="btn line-cta"
-         href="https://line.me/ti/p/~yan3yummy"
-         target="_blank" rel="noopener"
-         data-cta="bottom">
-        🟢 加 LINE｜先聊聊你的狀況｜林先生
-      </a>
+<!-- ✅ 只保留底部 LINE CTA（連結已改好） -->
+<a class="btn line-cta"
+   href="https://line.me/ti/p/~yan3yummy"
+   target="_blank" rel="noopener"
+   data-cta="bottom">
+  <span class="btn-text">🟢 加 LINE｜先聊聊你的狀況｜林先生</span>
+</a>
 
-      <div class="note">資料僅用於評估，不對外提供</div>
+<div class="note">資料僅用於評估，不對外提供</div>
+
     </section>
 
   </main>
@@ -585,7 +606,7 @@
       <!-- 左：圖片 -->
       <div>
         <img class="lb-img" id="lbImg" alt="放大圖片">
-        <div class="lb-hint">點右上角 ✕ 可關閉</div>
+        <div class="lb-hint">可左右滑動查看案例｜點右上角 ✕ 可關閉</div>
       </div>
 
       <!-- 右：文字 -->
