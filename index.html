@@ -145,7 +145,28 @@
       z-index:9999;
     }
     .lb.show{display:flex}
-    .lb-panel{
+    
+/* Lightbox 可捲動（手機可往下看內容），且右上角 X 永遠可點 */
+.lb{
+  overflow-y:auto;
+  -webkit-overflow-scrolling:touch;
+  align-items:flex-start;
+}
+.lb-panel{
+  margin:64px auto 24px; /* 留出 X 的空間 */
+}
+.lb-close{
+  position:fixed;
+  top:14px; right:14px;
+  z-index:10000;
+}
+@media (min-width:821px){
+  .lb{align-items:center}
+  .lb-panel{margin:0}
+  .lb-close{position:absolute; top:-10px; right:-10px; z-index:2}
+}
+
+.lb-panel{
       position:relative;
       width:min(980px, 100%);
       display:grid;
