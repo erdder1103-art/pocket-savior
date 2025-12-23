@@ -3,13 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-<!-- Favicon / Site Icon -->
+  <!-- Favicon / Site Icon -->
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
   <title>口袋救星｜先聊聊你的狀況</title>
   <meta name="description" content="被銀行拒絕、不代表沒辦法。加 LINE 私下聊，不辦、不查、不影響。" />
-
 
   <!-- Meta / Facebook Pixel (Base Code) -->
   <script>
@@ -172,7 +171,7 @@
     }
     .dot.active{background:#18c36b}
 
-        /* ===== 圖片放大 Lightbox（左圖右文；手機自動上下） ===== */
+    /* ===== 圖片放大 Lightbox（左圖右文；手機自動上下） ===== */
     .lb{
       position:fixed; inset:0;
       background:rgba(0,0,0,.78);
@@ -183,28 +182,28 @@
       z-index:9999;
     }
     .lb.show{display:flex}
-    
-/* Lightbox 可捲動（手機可往下看內容），且右上角 X 永遠可點 */
-.lb{
-  overflow-y:auto;
-  -webkit-overflow-scrolling:touch;
-  align-items:flex-start;
-}
-.lb-panel{
-  margin:64px auto 24px; /* 留出 X 的空間 */
-}
-.lb-close{
-  position:fixed;
-  top:14px; right:14px;
-  z-index:10000;
-}
-@media (min-width:821px){
-  .lb{align-items:center}
-  .lb-panel{margin:0}
-  .lb-close{position:absolute; top:-10px; right:-10px; z-index:2}
-}
 
-.lb-panel{
+    /* Lightbox 可捲動（手機可往下看內容），且右上角 X 永遠可點 */
+    .lb{
+      overflow-y:auto;
+      -webkit-overflow-scrolling:touch;
+      align-items:flex-start;
+    }
+    .lb-panel{
+      margin:64px auto 24px; /* 留出 X 的空間 */
+    }
+    .lb-close{
+      position:fixed;
+      top:14px; right:14px;
+      z-index:10000;
+    }
+    @media (min-width:821px){
+      .lb{align-items:center}
+      .lb-panel{margin:0}
+      .lb-close{position:absolute; top:-10px; right:-10px; z-index:2}
+    }
+
+    .lb-panel{
       position:relative;
       width:min(980px, 100%);
       display:grid;
@@ -253,33 +252,87 @@
       font-size:13px;
       opacity:.75;
     }
-    /* Lightbox 左右切換（桌機按鈕 + 鍵盤 + 手機滑動） */
-.lb-nav{
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  width:44px;height:44px;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,.16);
-  background:rgba(10,11,16,.65);
-  color:#fff;
-  font-size:22px;
-  cursor:pointer;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  z-index:2;
-  user-select:none;
-}
-.lb-nav.prev{left:-10px}
-.lb-nav.next{right:-10px}
-@media (max-width:820px){
-  .lb-nav{display:none}
-}
 
-@media (max-width:820px){
+    /* Lightbox 左右切換（桌機按鈕 + 鍵盤 + 手機滑動） */
+    .lb-nav{
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      width:44px;height:44px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.16);
+      background:rgba(10,11,16,.65);
+      color:#fff;
+      font-size:22px;
+      cursor:pointer;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      z-index:2;
+      user-select:none;
+    }
+    .lb-nav.prev{left:-10px}
+    .lb-nav.next{right:-10px}
+    @media (max-width:820px){
+      .lb-nav{display:none}
+    }
+
+    @media (max-width:820px){
       .lb-panel{grid-template-columns:1fr}
       .lb-side{max-height:none}
+    }
+
+    /* ===== IG/FB WebView 提示條 ===== */
+    .webview-hint{
+      position: fixed;
+      left: 12px;
+      right: 12px;
+      bottom: 12px;
+      z-index: 10050;
+      background: rgba(18,19,26,.92);
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 16px;
+      padding: 12px 12px;
+      box-shadow: 0 10px 24px rgba(0,0,0,.35);
+      backdrop-filter: blur(10px);
+      display: none;
+    }
+    .webview-hint.show{display:block}
+    .webview-hint .row{
+      display:flex; gap:10px; align-items:flex-start;
+    }
+    .webview-hint .title{
+      font-weight:800; margin:0 0 4px; font-size:14px;
+    }
+    .webview-hint .desc{
+      margin:0; opacity:.9; font-size:13px; line-height:1.4;
+    }
+    .webview-hint .actions{
+      display:flex; gap:8px; margin-top:10px; flex-wrap:wrap;
+    }
+    .webview-hint .btns{
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.06);
+      color:#fff;
+      padding:10px 12px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 13px;
+      cursor:pointer;
+    }
+    .webview-hint .btns.primary{
+      background:#18c36b;
+      border-color:#18c36b;
+      color:#04120a;
+    }
+    .webview-hint .close{
+      margin-left:auto;
+      width:34px;height:34px;
+      border-radius: 999px;
+      border:1px solid rgba(255,255,255,.16);
+      background: rgba(0,0,0,.25);
+      color:#fff;
+      cursor:pointer;
     }
   </style>
 </head>
@@ -289,9 +342,8 @@
   <header class="topbar">
     <div class="topbar-inner">
       <a class="logo" href="index.html">
-  <img class="logo-img" src="images/logo.png" alt="口袋救星">
-</a>
-
+        <img class="logo-img" src="images/logo.png" alt="口袋救星">
+      </a>
     </div>
   </header>
 
@@ -308,12 +360,11 @@
         <b>現在適不適合、怎麼走才不會更傷。</b>
       </div>
       <div class="note" style="margin-top:12px">不需填表・不查聯徵・不強迫辦理</div>
-<p style="margin:12px 0 0;opacity:.92">
-  很多人在需要借錢時，會遇到
-  <strong>銀行借錢被拒絕、聯徵紀錄不理想，或名下已有多筆負債</strong>。
-  這些狀況不一定代表完全沒機會，但錯誤的下一步，往往會讓信用與壓力變得更糟。
-</p>
-
+      <p style="margin:12px 0 0;opacity:.92">
+        很多人在需要借錢時，會遇到
+        <strong>銀行借錢被拒絕、聯徵紀錄不理想，或名下已有多筆負債</strong>。
+        這些狀況不一定代表完全沒機會，但錯誤的下一步，往往會讓信用與壓力變得更糟。
+      </p>
     </section>
 
     <!-- 成功案例輪播 -->
@@ -515,9 +566,7 @@
             </div>
           </article>
 
-          <!-- ✅ 你原本後面 case11~case13 我沒有刪，保持原狀（如果要只留10個我也可以幫你裁切） -->
-
-          
+          <!-- ✅ 你原本後面 case11~case13 我沒有刪（你貼過來的內容到這裡為止） -->
 
         </div>
 
@@ -549,41 +598,42 @@
       <div class="divider"></div>
       <b>不適合就不做，不會硬推。</b>
     </section>
-<section class="card">
-  <h2>常見借錢狀況整理</h2>
 
-  <p>
-    很多人在急需資金時，第一時間其實不知道該怎麼判斷自己的狀況。
-    以下整理幾種最常見的借錢困擾，幫你先釐清方向。
-  </p>
+    <section class="card">
+      <h2>常見借錢狀況整理</h2>
 
-  <ul>
-    <li>
-      <a href="borrow/bank-rejected.html">
-        銀行借錢被拒絕後，還有沒有其他選擇？
-      </a>
-    </li>
-    <li>
-      <a href="borrow/bad-credit.html">
-        聯徵不好、信用紀錄不理想，現在適合借錢嗎？
-      </a>
-    </li>
-    <li>
-      <a href="borrow/credit-inquiry-too-many.html">
-        聯徵查詢次數過多怎麼辦？多久會恢復？
-      </a>
-    </li>
-    <li>
-      <a href="borrow/many-debts.html">
-        名下多筆負債時，再借錢會不會讓情況更糟？
-      </a>
-    </li>
-  </ul>
+      <p>
+        很多人在急需資金時，第一時間其實不知道該怎麼判斷自己的狀況。
+        以下整理幾種最常見的借錢困擾，幫你先釐清方向。
+      </p>
 
-  <p class="note">
-    以上內容為經驗整理，非每個狀況都適用，建議先評估再行動。
-  </p>
-</section>
+      <ul>
+        <li>
+          <a href="borrow/bank-rejected.html">
+            銀行借錢被拒絕後，還有沒有其他選擇？
+          </a>
+        </li>
+        <li>
+          <a href="borrow/bad-credit.html">
+            聯徵不好、信用紀錄不理想，現在適合借錢嗎？
+          </a>
+        </li>
+        <li>
+          <a href="borrow/credit-inquiry-too-many.html">
+            聯徵查詢次數過多怎麼辦？多久會恢復？
+          </a>
+        </li>
+        <li>
+          <a href="borrow/many-debts.html">
+            名下多筆負債時，再借錢會不會讓情況更糟？
+          </a>
+        </li>
+      </ul>
+
+      <p class="note">
+        以上內容為經驗整理，非每個狀況都適用，建議先評估再行動。
+      </p>
+    </section>
 
     <section class="card">
       <h2>為什麼不用填表，直接 LINE？</h2>
@@ -593,26 +643,26 @@
         <li>一對一私下聊，不留在網路表單</li>
       </ul>
       <div class="divider"></div>
-<p class="note" style="margin:10px 0 0">
-  口袋救星不是貸款機構，而是協助你在借錢前把風險與方向釐清。
-  是否適合行動，仍需以每個人的實際狀況評估為準。
-</p>
+      <p class="note" style="margin:10px 0 0">
+        口袋救星不是貸款機構，而是協助你在借錢前把風險與方向釐清。
+        是否適合行動，仍需以每個人的實際狀況評估為準。
+      </p>
 
-<!-- ✅ 只保留底部 LINE CTA（連結已改好） -->
-<a class="btn line-cta"
-   href="https://line.me/ti/p/~veryhowloan888"
-   target="_blank" rel="noopener"
-   data-cta="bottom">
-  <span class="btn-text">🟢 加 LINE｜先聊聊你的狀況｜林先生</span>
-</a>
+      <!-- ✅ 只保留底部 LINE CTA（改成最穩 href + data-line-id） -->
+      <a class="btn line-cta"
+         href="https://line.me/R/ti/p/~veryhowloan888"
+         target="_blank"
+         rel="noopener noreferrer"
+         data-cta="bottom"
+         data-line-id="veryhowloan888">
+        <span class="btn-text">🟢 加 LINE｜先聊聊你的狀況｜吳先生</span>
+      </a>
 
-<div class="note">資料僅用於評估，不對外提供</div>
-
+      <div class="note">資料僅用於評估，不對外提供</div>
     </section>
 
   </main>
 
-  
   <!-- Lightbox -->
   <div class="lb" id="lightbox" aria-hidden="true">
     <div class="lb-panel" role="dialog" aria-modal="true" aria-label="圖片放大預覽">
@@ -636,14 +686,27 @@
     </div>
   </div>
 
-</div>
+  <!-- ===== IG/FB WebView 提示條 ===== -->
+  <div class="webview-hint" id="webviewHint" aria-hidden="true">
+    <div class="row">
+      <div>
+        <p class="title">在 IG/FB 內建瀏覽器可能無法跳轉 LINE</p>
+        <p class="desc">請點右上角「⋯」→「在瀏覽器開啟」，或先複製網址再開啟。</p>
+        <div class="actions">
+          <button class="btns primary" type="button" id="wvOpenLine">嘗試開啟 LINE</button>
+          <button class="btns" type="button" id="wvCopy">複製此頁網址</button>
+        </div>
+      </div>
+      <button class="close" type="button" id="wvClose" aria-label="關閉">✕</button>
+    </div>
+  </div>
 
   <script>
     // ===== Conversions API（CAPI）端點（Cloudflare Worker）=====
     const CAPI_ENDPOINT = "https://dry-sun-e97f.skype138388.workers.dev";
 
     function getCookie(name){
-      const m = document.cookie.match(new RegExp('(?:^|; )' + name.replace(/([.$?*|{}()\[\]\/\+^])/g,'\$1') + '=([^;]*)'));
+      const m = document.cookie.match(new RegExp('(?:^|; )' + name.replace(/([.$?*|{}()\[\]\/\+^])/g,'\\$1') + '=([^;]*)'));
       return m ? decodeURIComponent(m[1]) : '';
     }
 
@@ -669,7 +732,7 @@
       }catch(e){}
     }
 
-        // ===== 成功案例輪播：按鈕 / 圓點 =====
+    // ===== 成功案例輪播：按鈕 / 圓點 =====
     (function(){
       const track = document.getElementById('caseTrack');
       const dotsWrap = document.getElementById('caseDots');
@@ -719,165 +782,249 @@
       nextBtn && nextBtn.addEventListener('click', ()=>go(1));
     })();
 
-    // ===== Pixel + CAPI：LINE 點擊 → Lead（去重 + 延遲跳轉避免漏送）=====
-(function(){
-  document.querySelectorAll('.line-cta').forEach((el) => {
-    el.addEventListener('click', function(e){
-      e.preventDefault(); // 先不要立刻跳轉
-      const href = el.getAttribute('href');
-      const event_id = uuid();
-      const meta = {
-        content_name: 'line_click',
-        cta_position: el.getAttribute('data-cta') || 'unknown'
-      };
+    // ===== LINE CTA：最好維護（追蹤 + App scheme + fallback + WebView 提示）=====
+    (function(){
+      function isInAppWebView(){
+        const ua = navigator.userAgent || '';
+        const isFB = /FBAN|FBAV|FB_IAB|FB4A|FBIOS/i.test(ua);
+        const isIG = /Instagram/i.test(ua);
+        const isLine = /Line\/|LIFF/i.test(ua);
+        return isFB || isIG || isLine;
+      }
 
-      // Browser Pixel
-      try{
-        if(typeof fbq === 'function'){
-          fbq('track', 'Lead', meta, { eventID: event_id });
+      function getLineUrls(el){
+        const raw = (el.getAttribute('data-line-id') || 'veryhowloan888').trim();
+        const lineId = raw.replace(/^~+/, ''); // 去掉可能的 ~
+        const idWithTilde = '~' + lineId;
+
+        // 最穩保底：https（Universal Link）
+        const httpsUrl = el.getAttribute('href') || ('https://line.me/R/ti/p/' + idWithTilde);
+        // 嘗試拉起 App：scheme（Android 常更穩）
+        const appUrl = 'line://ti/p/' + idWithTilde;
+
+        return { httpsUrl, appUrl };
+      }
+
+      function showWebViewHint(httpsUrl, appUrl){
+        const hint = document.getElementById('webviewHint');
+        if(!hint) return;
+
+        hint.classList.add('show');
+        hint.setAttribute('aria-hidden', 'false');
+
+        const btnOpen = document.getElementById('wvOpenLine');
+        const btnCopy = document.getElementById('wvCopy');
+        const btnClose = document.getElementById('wvClose');
+
+        if(btnOpen){
+          btnOpen.onclick = function(){
+            window.location.href = appUrl;
+            setTimeout(()=>{ window.location.href = httpsUrl; }, 900);
+          };
         }
-      }catch(err){}
 
-      // Conversions API
-      sendCapi('Lead', event_id, meta);
+        if(btnCopy){
+          btnCopy.onclick = async function(){
+            try{
+              await navigator.clipboard.writeText(location.href);
+              btnCopy.textContent = '已複製 ✅';
+              setTimeout(()=>{ btnCopy.textContent = '複製此頁網址'; }, 1200);
+            }catch(e){
+              prompt('複製此頁網址：', location.href);
+            }
+          };
+        }
 
-      // 小延遲再跳轉，降低事件漏送
-      setTimeout(() => { window.location.href = href; }, 180);
-    });
-  });
-})();
+        if(btnClose){
+          btnClose.onclick = function(){
+            hint.classList.remove('show');
+            hint.setAttribute('aria-hidden', 'true');
+          };
+        }
+      }
+
+      function openLine(httpsUrl, appUrl){
+        // 立刻嘗試拉起 App（保持 user gesture）
+        window.location.href = appUrl;
+
+        // fallback：沒拉起就回到 https（或沒裝 LINE）
+        setTimeout(function(){
+          window.location.href = httpsUrl;
+        }, 900);
+      }
+
+      document.querySelectorAll('.line-cta').forEach((el) => {
+        el.addEventListener('click', function(e){
+          e.preventDefault();
+
+          const { httpsUrl, appUrl } = getLineUrls(el);
+          const event_id = uuid();
+          const meta = {
+            content_name: 'line_click',
+            cta_position: el.getAttribute('data-cta') || 'unknown'
+          };
+
+          // Browser Pixel
+          try{
+            if(typeof fbq === 'function'){
+              fbq('track', 'Lead', meta, { eventID: event_id });
+            }
+          }catch(err){}
+
+          // Conversions API
+          sendCapi('Lead', event_id, meta);
+
+          // WebView 顯示提示（但仍照樣嘗試開 LINE）
+          if(isInAppWebView()){
+            showWebViewHint(httpsUrl, appUrl);
+          }
+
+          openLine(httpsUrl, appUrl);
+        }, {passive:false});
+      });
+
+      // 進站即偵測：在 WebView 先提示一次（不強迫）
+      try{
+        if(isInAppWebView()){
+          const any = document.querySelector('.line-cta');
+          if(any){
+            const { httpsUrl, appUrl } = getLineUrls(any);
+            showWebViewHint(httpsUrl, appUrl);
+          }
+        }
+      }catch(e){}
+    })();
 
     // ===== 圖片放大 + 左右滑動切換 + 追蹤「觀看照片」事件（Pixel + CAPI 去重）=====
-(function(){
-  const lb = document.getElementById('lightbox');
-  const lbImg = document.getElementById('lbImg');
-  const lbClose = document.getElementById('lbClose');
-  const lbPrev = document.getElementById('lbPrev');
-  const lbNext = document.getElementById('lbNext');
+    (function(){
+      const lb = document.getElementById('lightbox');
+      const lbImg = document.getElementById('lbImg');
+      const lbClose = document.getElementById('lbClose');
+      const lbPrev = document.getElementById('lbPrev');
+      const lbNext = document.getElementById('lbNext');
 
-  const lbTitle = document.getElementById('lbTitle');
-  const lbSubtitle = document.getElementById('lbSubtitle');
-  const lbBody = document.getElementById('lbBody');
-  const lbMeta = document.getElementById('lbMeta');
+      const lbTitle = document.getElementById('lbTitle');
+      const lbSubtitle = document.getElementById('lbSubtitle');
+      const lbBody = document.getElementById('lbBody');
+      const lbMeta = document.getElementById('lbMeta');
 
-  // 所有案例（只取輪播內的 .slide，避免抓到其他圖片）
-  const slides = Array.from(document.querySelectorAll('#caseTrack .slide'));
-  let currentIndex = -1;
+      // 所有案例（只取輪播內的 .slide，避免抓到其他圖片）
+      const slides = Array.from(document.querySelectorAll('#caseTrack .slide'));
+      let currentIndex = -1;
 
-  function trackViewCaseImage(meta){
-    const event_id = uuid();
+      function trackViewCaseImage(meta){
+        const event_id = uuid();
 
-    // Browser Pixel
-    try{
-      if(typeof fbq === 'function'){
-        fbq('trackCustom', 'ViewCaseImage', meta || {}, { eventID: event_id });
+        // Browser Pixel
+        try{
+          if(typeof fbq === 'function'){
+            fbq('trackCustom', 'ViewCaseImage', meta || {}, { eventID: event_id });
+          }
+        }catch(e){}
+
+        // Conversions API
+        sendCapi('ViewCaseImage', event_id, meta || {});
       }
-    }catch(e){}
 
-    // Conversions API
-    sendCapi('ViewCaseImage', event_id, meta || {});
-  }
+      function renderFromSlide(slide){
+        const imgEl = slide.querySelector('.case-img');
+        const caseId = slide.getAttribute('data-case-id') || 'unknown';
+        const fullSrc = imgEl?.getAttribute('data-full') || imgEl?.getAttribute('src') || '';
 
-  function renderFromSlide(slide){
-    const imgEl = slide.querySelector('.case-img');
-    const caseId = slide.getAttribute('data-case-id') || 'unknown';
-    const fullSrc = imgEl?.getAttribute('data-full') || imgEl?.getAttribute('src') || '';
+        lbImg.src = fullSrc;
 
-    lbImg.src = fullSrc;
+        // 右側文字（從 data-* 讀；沒填就用現場內容兜底）
+        const title = slide.getAttribute('data-lb-title') || slide.querySelector('.tag')?.textContent?.trim() || '成功案例';
+        const subtitle = slide.getAttribute('data-lb-subtitle') || slide.querySelector('h3')?.textContent?.trim() || '';
+        const body = slide.getAttribute('data-lb-body') || slide.querySelector('.slide-desc')?.textContent?.trim() || '';
 
-    // 右側文字（從 data-* 讀；沒填就用現場內容兜底）
-    const title = slide.getAttribute('data-lb-title') || slide.querySelector('.tag')?.textContent?.trim() || '成功案例';
-    const subtitle = slide.getAttribute('data-lb-subtitle') || slide.querySelector('h3')?.textContent?.trim() || '';
-    const body = slide.getAttribute('data-lb-body') || slide.querySelector('.slide-desc')?.textContent?.trim() || '';
+        lbTitle.textContent = title;
+        lbSubtitle.textContent = subtitle;
+        lbBody.textContent = body;
+        lbMeta.textContent = `案例編號：${caseId}（${currentIndex+1}/${slides.length}）`;
 
-    lbTitle.textContent = title;
-    lbSubtitle.textContent = subtitle;
-    lbBody.textContent = body;
-    lbMeta.textContent = `案例編號：${caseId}（${currentIndex+1}/${slides.length}）`;
+        // 每次切換都算一次「有看這張」
+        trackViewCaseImage({
+          case_id: caseId,
+          image_src: fullSrc,
+          position: currentIndex + 1
+        });
+      }
 
-    // 每次切換都算一次「有看這張」
-    trackViewCaseImage({
-      case_id: caseId,
-      image_src: fullSrc,
-      position: currentIndex + 1
-    });
-  }
+      function showIndex(nextIndex){
+        if(!slides.length) return;
+        currentIndex = (nextIndex + slides.length) % slides.length;
+        renderFromSlide(slides[currentIndex]);
+      }
 
-  function showIndex(nextIndex){
-    if(!slides.length) return;
-    currentIndex = (nextIndex + slides.length) % slides.length;
-    renderFromSlide(slides[currentIndex]);
-  }
+      function openLightboxBySlide(slide){
+        const idx = slides.indexOf(slide);
+        if(idx === -1) return;
 
-  function openLightboxBySlide(slide){
-    const idx = slides.indexOf(slide);
-    if(idx === -1) return;
+        lb.classList.add('show');
+        lb.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
 
-    lb.classList.add('show');
-    lb.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
+        showIndex(idx);
+      }
 
-    showIndex(idx);
-  }
+      function closeLightbox(){
+        lb.classList.remove('show');
+        lb.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        lbImg.src = '';
 
-  function closeLightbox(){
-    lb.classList.remove('show');
-    lb.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
-    lbImg.src = '';
+        lbTitle.textContent = '';
+        lbSubtitle.textContent = '';
+        lbBody.textContent = '';
+        lbMeta.textContent = '';
+        currentIndex = -1;
+      }
 
-    lbTitle.textContent = '';
-    lbSubtitle.textContent = '';
-    lbBody.textContent = '';
-    lbMeta.textContent = '';
-    currentIndex = -1;
-  }
+      // 點小圖開啟
+      document.querySelectorAll('#caseTrack .case-img').forEach((img) => {
+        img.addEventListener('click', () => {
+          const slide = img.closest('.slide');
+          if(slide) openLightboxBySlide(slide);
+        });
+      });
 
-  // 點小圖開啟
-  document.querySelectorAll('#caseTrack .case-img').forEach((img) => {
-    img.addEventListener('click', () => {
-      const slide = img.closest('.slide');
-      if(slide) openLightboxBySlide(slide);
-    });
-  });
+      // 桌機按鈕切換
+      lbPrev && lbPrev.addEventListener('click', (e) => { e.stopPropagation(); showIndex(currentIndex - 1); });
+      lbNext && lbNext.addEventListener('click', (e) => { e.stopPropagation(); showIndex(currentIndex + 1); });
 
-  // 桌機按鈕切換
-  lbPrev && lbPrev.addEventListener('click', (e) => { e.stopPropagation(); showIndex(currentIndex - 1); });
-  lbNext && lbNext.addEventListener('click', (e) => { e.stopPropagation(); showIndex(currentIndex + 1); });
+      // 關閉
+      lbClose.addEventListener('click', (e) => { e.stopPropagation(); closeLightbox(); });
+      lb.addEventListener('click', (e) => { if(e.target === lb) closeLightbox(); });
 
-  // 關閉
-  lbClose.addEventListener('click', (e) => { e.stopPropagation(); closeLightbox(); });
-  lb.addEventListener('click', (e) => { if(e.target === lb) closeLightbox(); });
+      // 鍵盤：ESC 關閉、左右鍵切換
+      document.addEventListener('keydown', (e) => {
+        if(!lb.classList.contains('show')) return;
+        if(e.key === 'Escape') closeLightbox();
+        if(e.key === 'ArrowLeft') showIndex(currentIndex - 1);
+        if(e.key === 'ArrowRight') showIndex(currentIndex + 1);
+      });
 
-  // 鍵盤：ESC 關閉、左右鍵切換
-  document.addEventListener('keydown', (e) => {
-    if(!lb.classList.contains('show')) return;
-    if(e.key === 'Escape') closeLightbox();
-    if(e.key === 'ArrowLeft') showIndex(currentIndex - 1);
-    if(e.key === 'ArrowRight') showIndex(currentIndex + 1);
-  });
+      // 手機滑動：在圖片上左右滑切換
+      let startX = 0, startY = 0, startT = 0;
+      lbImg.addEventListener('touchstart', (e) => {
+        const t = e.touches[0];
+        startX = t.clientX; startY = t.clientY; startT = Date.now();
+      }, {passive:true});
 
-  // 手機滑動：在圖片上左右滑切換
-  let startX = 0, startY = 0, startT = 0;
-  lbImg.addEventListener('touchstart', (e) => {
-    const t = e.touches[0];
-    startX = t.clientX; startY = t.clientY; startT = Date.now();
-  }, {passive:true});
+      lbImg.addEventListener('touchend', (e) => {
+        const t = e.changedTouches[0];
+        const dx = t.clientX - startX;
+        const dy = t.clientY - startY;
+        const dt = Date.now() - startT;
 
-  lbImg.addEventListener('touchend', (e) => {
-    const t = e.changedTouches[0];
-    const dx = t.clientX - startX;
-    const dy = t.clientY - startY;
-    const dt = Date.now() - startT;
-
-    // 主要判斷：水平滑動且幅度足夠、垂直位移不大、時間合理
-    if(Math.abs(dx) > 50 && Math.abs(dy) < 60 && dt < 600){
-      if(dx < 0) showIndex(currentIndex + 1); // 向左滑 → 下一張
-      else showIndex(currentIndex - 1);       // 向右滑 → 上一張
-    }
-  }, {passive:true});
-})();
-</script>
+        // 主要判斷：水平滑動且幅度足夠、垂直位移不大、時間合理
+        if(Math.abs(dx) > 50 && Math.abs(dy) < 60 && dt < 600){
+          if(dx < 0) showIndex(currentIndex + 1); // 向左滑 → 下一張
+          else showIndex(currentIndex - 1);       // 向右滑 → 上一張
+        }
+      }, {passive:true});
+    })();
+  </script>
 </body>
 </html>
-
